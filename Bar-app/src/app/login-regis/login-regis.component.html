@@ -5,16 +5,16 @@
                 <h2 class="title">Iniciar Sesión</h2>
 
                 <div class="input-field">
-                    <div class="foto2"> <img src="" class="img2" alt="imagenUser"></div>
-                    <input type="text" name="a"  placeholder="Usuario">
+                    <div class="foto2"> <img src="/assets/img/usuario.png" class="img2" alt="imagenUser"></div>
+                    <input type="text" [(ngModel)]="modeloadm.admusuario"  name="user" placeholder="Usuario">
                 </div>
 
                 <div class="input-field">
-                    <div class="foto2"> <img src="" class="img2" alt="imagenUser"></div>
-                    <input type="password"  name="a" placeholder="Contraseña">
+                    <div class="foto2"> <img src="/assets/img/bloquear.png" class="img2" alt="imagenUser"></div>
+                    <input type="password" [(ngModel)]="modeloadm.admcontrasena" name="pass" placeholder="Contraseña">
                 </div>
 
-                <input  type="submit" name="Login" class="btnNB solid" value="Iniciar Sesión">
+                <input (click)="principal(modeloadm)" type="submit" name="Login" class="btnNB solid" value="Iniciar Sesión">
 
 
                 <p class="social-text">Visítanos en nuestras plataformas</p>
@@ -38,17 +38,17 @@
                 <h2 class="title">Registrarse</h2>
 
                 <div class="input-field">
-                    <div class="foto"> <img src=""  class="img2"  alt="imagenUser"></div>
+                    <div class="foto"> <img src="/assets/img/usuario.png"  class="img2"  alt="imagenUser"></div>
                     <input type="text"  name="user" placeholder="Usuario">
                 </div>
 
                 <div class="input-field">
-                    <div class="foto"> <img src="" class="img2" alt="imagenUser"></div>
-                    <input type="email" name="gmail" placeholder="Correo">
+                    <div class="foto"> <img src="/assets/img/gmail.png" class="img2" alt="imagenUser"></div>
+                    <input type="email"  name="gmail" placeholder="Correo">
                 </div>
 
                 <div class="input-field">
-                    <div class="foto"> <img src="" class="img2" alt="imagenUser"></div>
+                    <div class="foto"> <img src="/assets/img/dni.png" class="img2" alt="imagenUser"></div>
                     <input type="number" name="cedu"placeholder="Cedula">
                 </div>
 
@@ -58,16 +58,16 @@
                 <div class="social-media">
                     <!--sirve para crear 4 a. a.social-icon*4-->
                     <a href="#" class="social-icon">
-                        <div class="fotoRedes"> <img src="" alt="imagenUser"></div>
+                        <div class="fotoRedes"> <img src="/assets/img/facebook.png" alt="imagenUser"></div>
                     </a>
                     <a href="#" class="social-icon">
-                        <div class="fotoRedes"> <img src="" alt="imagenUser"></div>
+                        <div class="fotoRedes"> <img src="/assets/img/telegram.png" alt="imagenUser"></div>
                     </a>
                     <a href="#" class="social-icon">
-                        <div class="fotoRedes"> <img src="" alt="imagenUser"></div>
+                        <div class="fotoRedes"> <img src="/assets/img/instagram.png" alt="imagenUser"></div>
                     </a>
                     <a href="#" class="social-icon">
-                        <div class="fotoRedes"> <img src="" alt="imagenUser"></div>
+                        <div class="fotoRedes"> <img src="/assets/img/twitter.png" alt="imagenUser"></div>
                     </a>
                 </div>
             </form>
@@ -78,12 +78,12 @@
         <div class="panelNB left-panel">
 
             <div class="content">
-                <img src="" class="image imageL">
+                <img src="/assets/img/logoista.png" class="image imageL">
 
-                <h3>¿Eres nuevo?</h3>
+                <h3>BIENVENIDO A BAR ISTA !!!</h3>
                 <p>
-                    Esta es una tienda web donde puedes poner tus artículos a la venta como realizar trueques de forma
-                    rápida y segura.
+                    Esta es un web bar donde puedes ordenar cualquier tipo de snaks o comida rapida de manera eficaz y 
+                    segura.
                 </p>
                     <a class="btn-neon" id="sign-up-btn" #signUpBtn> 
                         <span id="spain1"></span>
@@ -97,14 +97,15 @@
         <div class="panelNB right-panel">
 
             <div class="content">
-                <h3>¿Ya nos conoces ?</h3>
-                <p>Entonces inicia sesión y disfruta de nuestros servicios donde podrás encontrar gran variedad de
-                    productos
+                <h3>REGISTRATE EN BAR ISTA !!!</h3>
+                <p>Entonces inicia sesión y disfruta de nuestros servicios donde podrás disfrutar 
+                    de la mejor comida 
+                    
 
                 </p>
                 <button class="btnNB transparent" id="sign-in-btn" #signInBtn>Iniciar Sesión</button>
             </div>
-            <img src="/assets/img/condor.svg" class="image imageC">
+            <img src="/assets/img/logoista.png" class="image imageC">
         </div>
     </div>
 </div>
