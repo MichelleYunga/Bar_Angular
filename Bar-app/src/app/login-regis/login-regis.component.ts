@@ -11,7 +11,13 @@ import { LoginRegisService } from '../service/login-regis.service';
 })
 export class LoginRegisComponent implements OnInit {
 
-  constructor(private router:Router, private service: LoginRegisService ){}
+  constructor
+  (
+    private router:Router, 
+    private service: LoginRegisService,
+     
+    
+  ){}
 
 
   ngOnInit(): void {
@@ -51,11 +57,13 @@ export class LoginRegisComponent implements OnInit {
           this.modeloadm=data;
 
           // localStorage.setItem("userId",this.modeloUsuario.usuId.toString());
-          localStorage.setItem("userName",this.modeloadm.admusuario.toString());
+          //localStorage.setItem("userName",this.modeloadm.admusuario.toString());
           // var usuarioJSON = JSON.stringify(this.modeloUsuario);
           // localStorage.setItem("usuarioObj", usuarioJSON);
           
           Swal.fire('LOGIN','USUARIO ENCONTRADO','success');
+
+          this.router.navigate(["/bienvenida"]);
                 
         }else{
       
@@ -65,8 +73,10 @@ export class LoginRegisComponent implements OnInit {
     }else{
       Swal.fire('LOGIN','RELLENE LOS DATOS POR FAVOR','warning');
     }
-
    
+  }
+  reloadPage():void{
+    location.reload();
   }
 
 }

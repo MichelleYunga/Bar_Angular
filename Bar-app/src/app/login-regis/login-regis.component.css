@@ -30,8 +30,7 @@
     border-radius: 5px;
 }
 
-.content {
-}
+
 
 .forms-container{
     position: absolute;
@@ -179,7 +178,7 @@ form.sign-up-form{
 .social-icon:hover{
     /* si paso el mouse por incima del icono*/
     /*color: #4481eb;*/
-    border-color: green;
+    background: linear-gradient(135deg, #001aff, #ffee00);
 }
 
 .panels-container{
