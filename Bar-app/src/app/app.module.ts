@@ -18,7 +18,8 @@ const routes:Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path:'login',component:LoginRegisComponent},
   {path: 'bienvenida',component:BienvenidaComponent},
-  {path:'header-adm', component:HeaderAdministradorComponent}
+  {path:'header-adm', component:HeaderAdministradorComponent},
+  {path:'header', component:HeaderComponent}
 
 ]
 
