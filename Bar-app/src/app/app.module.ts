@@ -12,6 +12,7 @@ import { AdministracionService } from './service/administracion.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { HeaderAdministradorComponent } from './header-administrador/header-administrador.component';
+import { ClientesComponent } from './clientes/clientes.component';
 
 
 const routes:Routes = [
@@ -31,7 +32,8 @@ const routes:Routes = [
     FooterComponent,
     LoginRegisComponent,
     BienvenidaComponent,
-    HeaderAdministradorComponent
+    HeaderAdministradorComponent,
+    ClientesComponent
     
   ],
   imports: [
