@@ -1,13 +1,84 @@
 .footer{
-    background: linear-gradient(135deg, #001aff, #ffee00);
+    background: linear-gradient(135deg,#ffee00, #001aff);
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    color: white;
+    color: rgb(5, 5, 5);
+    border-radius: 20px;
+    margin: 5px;
+    
 }
 
-.addres{
-    position: fixed;
+.box2{
+    background: black;
 }
+
+#box1 {
+    position:relative;
+}
+
+#informacion{
+    position:absolute;
+      top:0;
+      right:0;
+      width:200px;
+}
+
+
+.grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+}
+
+.grupo-2{
+    background-color: #09153f;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #7cdbe3;
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+
+.grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grupo-1 .box h2{
+    color: #0a0a0a;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.grupo-1 .box p{
+    color: #efefef;
+    margin-bottom: 10px;
+}
+
+.grupo-1 .red-social a:hover{
+    color: aqua;
+}
+
+
+
