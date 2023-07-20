@@ -20,3 +20,11 @@
     color: #000000;
     background-color: rgb(251, 255, 175);
   }
+  .card-header{
+font-family: Georgia;
+text-align: center;
+
+  }
+  .card-title{
+    font-family:Cambria;
+  }
