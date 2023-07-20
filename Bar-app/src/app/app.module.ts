@@ -11,16 +11,31 @@ import { LoginRegisService } from './service/login-regis.service';
 import { AdministracionService } from './service/administracion.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
-import { HeaderAdministradorComponent } from './header-administrador/header-administrador.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { AdminrutasComponent } from './adminrutas/adminrutas.component';
+import { HeaderAdminComponent } from './header-admin/header-admin.component';
 
 
 const routes:Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path:'login',component:LoginRegisComponent},
   {path: 'bienvenida',component:BienvenidaComponent},
-  {path:'header-adm', component:HeaderAdministradorComponent},
-  {path:'header', component:HeaderComponent}
+  {path:'header', component:HeaderComponent},
+  {path:'footer', component:FooterComponent},
+  {path:'clientes', component:ClientesComponent},
+  {path:'rutas', component:AdminrutasComponent}, 
+  {path:'headerA', component:HeaderAdminComponent}
+  
+  
+  //rutas Administrador 
+ // {
+ //   path: 'adHeader', component: HadearAdminComponent, children: [
+  /*    { path: 'adAdministrar', component: AdministrarComponent },
+      { path: 'adUsuarios', component: UsuariosComponent },
+      { path: 'adProductos', component: AdproductosComponent },
+      { path: 'adCategoria', component: CategoriasComponent }
+    ]
+  },*/
 
 ]
 
@@ -32,8 +47,9 @@ const routes:Routes = [
     FooterComponent,
     LoginRegisComponent,
     BienvenidaComponent,
-    HeaderAdministradorComponent,
-    ClientesComponent
+    ClientesComponent,
+    AdminrutasComponent,
+    HeaderAdminComponent
     
   ],
   imports: [
