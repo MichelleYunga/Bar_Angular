@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.componentnt';
 import { LoginRegisComponent } from './login-regis/login-regis.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginRegisService } from './service/login-regis.service';
 import { AdministracionService } from './service/administracion.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +14,7 @@ import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { AdminrutasComponent } from './adminrutas/adminrutas.component';
 import { HeaderAdminComponent } from './header-admin/header-admin.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 
 const routes:Routes = [
@@ -24,7 +25,8 @@ const routes:Routes = [
   {path:'footer', component:FooterComponent},
   {path:'clientes', component:ClientesComponent},
   {path:'rutas', component:AdminrutasComponent}, 
-  {path:'headerA', component:HeaderAdminComponent}
+  {path:'headerA', component:HeaderAdminComponent},
+  {path:'categoria', component:CategoriaComponent}
   
   
   //rutas Administrador 
@@ -49,13 +51,15 @@ const routes:Routes = [
     BienvenidaComponent,
     ClientesComponent,
     AdminrutasComponent,
-    HeaderAdminComponent
+    HeaderAdminComponent, 
+    CategoriaComponent
     
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [LoginRegisService, AdministracionService],
