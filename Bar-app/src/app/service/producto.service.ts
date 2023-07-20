@@ -1,31 +1,28 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Categoria } from '../modelo/categoria';
+import { Producto } from '../modelo/producto';
 
 @Injectable({
     providedIn: 'root'
   })
   
-  export class CategoriaService {
+  export class ProductoService {
   
-    private url = 'http://localhost:8080/categorias';
-
-   
-
+    private url = 'http://localhost:8080/productos';
     UrlBuscar='';
     constructor(private httpClient:HttpClient) { };
     private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
-      getCategoria():Observable<Categoria[]>{
-        return this.httpClient.get<Categoria[]>(this.url+'/listar').pipe(
-          map(response => response as Categoria[])
+      getProducto():Observable<Producto[]>{
+        return this.httpClient.get<Producto[]>(this.url+'/listar').pipe(
+          map(response => response as Producto[])
         )
       }
     
-      postCategoria(request:any):Observable<any>{
+      postProducto(request:any):Observable<any>{
         return this.httpClient.post<any>(this.url + '/agregar', request).pipe(
-          map(response => response as Categoria[])
+          map(response => response as Producto[])
         )
     
       }
@@ -33,21 +30,21 @@ import { Categoria } from '../modelo/categoria';
       create(request: any): Observable<any> {
    
         return this.httpClient.post<any>(this.url+ '/agregar', request).pipe(
-          map(response => response as Categoria[])
+          map(response => response as Producto[])
         );
       }
     
       
-      EliminarCategoria(id:number):Observable<any>{
+      EliminarProducto(id:number):Observable<any>{
         return this.httpClient.delete<any>(this.url+'/eliminar/'+id).pipe(
-          map(response => response as Categoria[])
+          map(response => response as Producto[])
         )
     
       }
-      ModificarCategoria(request: any): Observable<any> {
-        const id = request.id_categoria;
+      ModificarProducto(request: any): Observable<any> {
+        const id = request.IdProducto;
         return this.httpClient.put<any>(`${this.url}/actualizar/${id}`, request).pipe(
-          map(response => response as Categoria[])
+          map(response => response as Producto[])
         );
       }
 

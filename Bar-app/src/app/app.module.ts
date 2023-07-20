@@ -15,6 +15,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { AdminrutasComponent } from './adminrutas/adminrutas.component';
 import { HeaderAdminComponent } from './header-admin/header-admin.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { ProductoComponent } from './producto/producto.component';
 
 
 const routes:Routes = [
@@ -26,7 +27,10 @@ const routes:Routes = [
   {path:'clientes', component:ClientesComponent},
   {path:'rutas', component:AdminrutasComponent}, 
   {path:'headerA', component:HeaderAdminComponent},
-  {path:'categoria', component:CategoriaComponent}
+  {path:'categoria', component:CategoriaComponent},
+  {path:'producto', component:ProductoComponent}
+
+  
   
   
   //rutas Administrador 
@@ -52,6 +56,7 @@ const routes:Routes = [
     ClientesComponent,
     AdminrutasComponent,
     HeaderAdminComponent, 
+    ProductoComponent,
     CategoriaComponent
     
   ],
