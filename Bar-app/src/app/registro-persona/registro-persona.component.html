@@ -1,0 +1,75 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>Responsive Regisration Form </title>
+</head>
+
+<body>
+    <div class="container">
+        <header>Registrate Aqui !!</header>
+
+        <form action="#">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Ingrese sus campos</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Cedula</label>
+                            <input type="text" [(ngModel)]="pers.cedula" placeholder="0150266385" name="cedula" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nombre</label>
+                            <input type="text" [(ngModel)]="pers.nombre" placeholder="Julio" name="nombre" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Apellido</label>
+                            <input type="text" [(ngModel)]="pers.apellido" placeholder="Parra" name="apellido" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Telefono</label>
+                            <input type="number" [(ngModel)]="pers.telefono" placeholder="4085338" name="telefono" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Correo Electronico</label>
+                            <input type="email" [(ngModel)]="pers.correo" placeholder="jl@gmail.com" name="email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Direccion</label>
+                            <input type="text" [(ngModel)]="pers.direccion" placeholder="Av.24 mayo" name="direccion" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Fecha Nacimiento</label>
+                            <input type="date" [(ngModel)]="pers.fechanacimiento" placeholder="19/07/2023" name="fecha" required>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button (click)="verificarDatos()" class="Btn">
+                    <span class="btnText">Guardar</span>
+                    
+                </button>
+
+                <img src="/assets/img/logoista.png" class="logo">
+
+            </div>
+
+        </form>
+
+    </div>         
+
+</body>

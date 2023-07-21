@@ -1,111 +1,82 @@
-<div class="containerNB body" #container>
-    <div class="forms-container">
-        <div class="signin-signup">
-            <form action="" class="sign-in-form">
-                <h2 class="title">Iniciar Sesión</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in || Sign up from</title>
+     <!-- font awesome icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css stylesheet -->
+    
+</head>
 
-                <div class="input-field">
-                    <div class="foto2"> <img src="/assets/img/usuario.png" class="img2" alt="imagenUser"></div>
-                    <input type="text" [(ngModel)]="modeloadm.admusuario"  name="user" placeholder="Usuario">
+<body>
+
+    <div class="container" id="container" #container>
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Crea tu cuenta</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-
-                <div class="input-field">
-                    <div class="foto2"> <img src="/assets/img/bloquear.png" class="img2" alt="imagenUser"></div>
-                    <input type="password" [(ngModel)]="modeloadm.admcontrasena" name="pass" placeholder="Contraseña">
+                <span>visitanos en</span>
+                <div class="infield">
+                    <input type="text" [(ngModel)]="modeloper.cedula" name="cedula" placeholder="Cedula" />
+                    <label></label>
                 </div>
-
-                <input (click)="principal(modeloadm)"  name="Login" class="btnNB solid" value="Iniciar Sesión">
-
-
-                <p class="social-text">Visítanos en nuestras plataformas</p>
-                <div class="social-media">
-                    <!--sirve para crear 4 a. a.social-icon*4-->
-                    <a href="https://www.facebook.com/TecAzuay/" class="social-icon">
-                        <div class="fotoRedes"> <img src="/assets/img/facebook.png" alt="imagenUser"></div>
-                    </a>
-                    <a href="https://twitter.com/TecAzuay" class="social-icon">
-                        <div class="fotoRedes"> <img src="/assets/img/twitter.png" alt="imagenUser"></div>
-                    </a>
-                    <a href="https://www.instagram.com/tecdelazuay/" class="social-icon">
-                        <div class="fotoRedes"> <img src="/assets/img/instagram.png" alt="imagenUser"></div>
-                    </a>
+                <div class="infield">
+                    <input type="text" [(ngModel)]="modeloadm.usuario" name="Username" placeholder="Username" />
+                    <label></label>
                 </div>
+                <div class="infield">
+                    <input type="password" [(ngModel)]="modeloadm.contrase" name="password" placeholder="Password" />
+                    <label></label>            
+                </div>
+                
+                <button (click)="registrar(modeloper,modeloadm)">Registrar</button>
             </form>
-
-            <!-- separacion del 1 from y el segundo-->
-            <form action="" class="sign-up-form">
-
-                <h2 class="title">Registrarse</h2>
-
-                <div class="input-field">
-                    <div class="foto"> <img src="/assets/img/usuario.png"  class="img2"  alt="imagenUser"></div>
-                    <input type="text"  name="user" placeholder="Usuario">
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Iniciar Sesion</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-
-                <div class="input-field">
-                    <div class="foto"> <img src="/assets/img/gmail.png" class="img2" alt="imagenUser"></div>
-                    <input type="email"  name="gmail" placeholder="Correo">
+                <span>visitanos en </span>
+                <div class="infield">
+                    <input type="text" [(ngModel)]="modeloadm.usuario" placeholder="Username" name="Username"/>
+                    <label></label>
                 </div>
-
-                <div class="input-field">
-                    <div class="foto"> <img src="/assets/img/dni.png" class="img2" alt="imagenUser"></div>
-                    <input type="number" name="cedu"placeholder="Cedula">
+                <div class="infield">
+                    <input type="password" [(ngModel)]="modeloadm.contrase" name="password" placeholder="Password" />
+                    <label></label>
                 </div>
-
-                <input  type="submit" name="Sign up" class="btnNB solid" value="Continuar">
-
-                <p class="social-text">Síguenos en nuestras plataformas </p>
-                <div class="social-media">
-                    <!--sirve para crear 4 a. a.social-icon*4-->
-                    <a href="#" class="social-icon">
-                        <div class="fotoRedes"> <img src="/assets/img/facebook.png" alt="imagenUser"></div>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <div class="fotoRedes"> <img src="/assets/img/telegram.png" alt="imagenUser"></div>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <div class="fotoRedes"> <img src="/assets/img/instagram.png" alt="imagenUser"></div>
-                    </a>
-                    <a href="#" class="social-icon">
-                        <div class="fotoRedes"> <img src="/assets/img/twitter.png" alt="imagenUser"></div>
-                    </a>
-                </div>
+                <a href="#" class="forgot">Forgot your password?</a>
+                <button (click)="principal(modeloadm)">Ingresar</button>
             </form>
-
+        </div>
+        <div class="overlay-container" id="overlayCon" #overlayCon>
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienvenido !!</h1>
+                    <p>Mantente conectado con nosotros, creando una cuenta</p>
+                    <button>Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hola, Amigo!</h1>
+                    <p>Introduce tus datos personales y comienza este viaje con nosotros</p>
+                    <button>Sign Up</button>
+                </div>
+            </div>
+            <button id="overlayBtn" #overlayBtn></button>
         </div>
     </div>
-    <div class="panels-container">
-        <div class="panelNB left-panel">
+    
+    <!-- js code -->
+    
 
-            <div class="content">
-                <img src="/assets/img/logoista.png" class="image imageL">
+</body>
 
-                <h3>BIENVENIDO A BAR ISTA !!!</h3>
-                <p>
-                    Esta es un web bar donde puedes ordenar cualquier tipo de snaks o comida rapida de manera eficaz y 
-                    segura.
-                </p>
-                    <a class="btn-neon" id="sign-up-btn" #signUpBtn> 
-                        <span id="spain1"></span>
-                        <span id="spain2"></span>
-                        <span id="spain3"></span>
-                        <span id="spain4"></span>
-                        REGISTRARSE</a>
-            </div>
-        </div>
-
-        <div class="panelNB right-panel">
-
-            <div class="content">
-                <h3>REGISTRATE EN BAR ISTA !!!</h3>
-                <p>Entonces inicia sesión y disfruta de nuestros servicios donde podrás disfrutar 
-                    de la mejor comida 
-                    
-
-                </p>
-                <button class="btnNB transparent" id="sign-in-btn" #signInBtn>Iniciar Sesión</button>
-            </div>
-            <img src="/assets/img/logoista.png" class="image imageC">
-        </div>
-    </div>
-</div>

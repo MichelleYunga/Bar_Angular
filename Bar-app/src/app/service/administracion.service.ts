@@ -10,9 +10,16 @@ import { administrador } from '../modelo/administrador';
 
 export class AdministracionService {
 
-  constructor( private http:HttpClient) { }
+  private url = 'http://localhost:8080/api/administrador';
 
-  private url = 'http://localhost:8080/api';
+  constructor( private httpClient:HttpClient) { }
+
+  registrarAdministrador(adm: administrador): Observable<Object>{
+    return this.httpClient.post(`${this.url}`,adm);
+  }
+  
+
+  
 
   
 }
