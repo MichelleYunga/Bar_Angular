@@ -1,12 +1,12 @@
 <app-header-admin></app-header-admin>
 <div class="card boder-primary mb-3" >
-    <div class="card-header">CLIENTES</div>
+    <div class="card-header">PERSONAS REGISTRADAS EN EL SISTEMA </div>
     <div class="card-body text-primary">
-      <h5 class="card-title">LISTADO DE CLIENTES GESTION_BAR</h5>
+      <h5 class="card-title">LISTADO </h5>
   
-      <DIV class="my-2-text-left">
+     <!-- <DIV class="my-2-text-left">
           <button type="button"  class="btn btn-dark"   > Ingresar un nuevo Cliente</button>
-      </DIV>
+      </DIV>-->
       <div></div>
 
       <div class="table-wrapper" >
@@ -22,9 +22,7 @@
                 <th width="40%">CORREO</th>
                 <th width="40%">DIRECCION</th>
                 <th width="40%">FECHA_NACIMIENTO</th>
-                <th width="40%">ID_CLIENTE</th>
-                <th width="40%">USUARIO</th>
-                <th width="40%">CONTRASEÑA</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -37,11 +35,7 @@
             <td>{{persona.correo}}</td>
             <td>{{persona.direccion}}</td>
             <td>{{persona.fechanacimiento}}</td>
-            <td>
-              <li *ngFor="let cliente of clientes">
-                {{cliente.id_cliente}}
-              </li>
-            </td > 
+             
           </tr>
         </tbody>
   

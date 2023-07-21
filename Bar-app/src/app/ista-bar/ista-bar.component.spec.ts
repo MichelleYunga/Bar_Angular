@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormComponentPr } from './form.component';
+import { IstaBarComponent } from './ista-bar.component';
 
-describe('FormComponent', () => {
-  let component: FormComponentPr;
-  let fixture: ComponentFixture<FormComponentPr>;
+describe('IstaBarComponent', () => {
+  let component: IstaBarComponent;
+  let fixture: ComponentFixture<IstaBarComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FormComponentPr]
+      declarations: [IstaBarComponent]
     });
-    fixture = TestBed.createComponent(FormComponentPr);
+    fixture = TestBed.createComponent(IstaBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
