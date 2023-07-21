@@ -22,19 +22,27 @@
                 <th width="40%">CORREO</th>
                 <th width="40%">DIRECCION</th>
                 <th width="40%">FECHA_NACIMIENTO</th>
+                <th width="40%">ID_CLIENTE</th>
+                <th width="40%">USUARIO</th>
+                <th width="40%">CONTRASEÑA</th>
             </tr>
         </thead>
         <tbody>
-            <tr > 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-           </tr>
+            <tr *ngFor="let persona of personas"> 
+            <td>{{persona.id_persona}}</td>
+            <td>{{persona.cedula}}</td>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellido}}</td>
+            <td>{{persona.telefono}}</td>
+            <td>{{persona.correo}}</td>
+            <td>{{persona.direccion}}</td>
+            <td>{{persona.fechanacimiento}}</td>
+            <td>
+              <li *ngFor="let cliente of clientes">
+                {{cliente.id_cliente}}
+              </li>
+            </td > 
+          </tr>
         </tbody>
   
       </table>

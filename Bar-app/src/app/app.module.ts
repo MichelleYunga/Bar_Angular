@@ -16,6 +16,7 @@ import { AdminrutasComponent } from './adminrutas/adminrutas.component';
 import { HeaderAdminComponent } from './header-admin/header-admin.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ProductoComponent } from './producto/producto.component';
+import { ClienteService } from './clientes/cliente.service';
 
 
 const routes:Routes = [
@@ -67,7 +68,7 @@ const routes:Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [LoginRegisService, AdministracionService],
+  providers: [LoginRegisService, AdministracionService,ClienteService],
   bootstrap: [AppComponent],
   exports:[RouterModule]
 })
