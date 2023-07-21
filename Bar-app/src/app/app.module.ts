@@ -17,6 +17,8 @@ import { HeaderAdminComponent } from './header-admin/header-admin.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ClienteService } from './clientes/cliente.service';
+import { FormComponentPr } from './producto/form.component';
+import { ProductoService } from './service/producto.service';
 
 
 const routes:Routes = [
@@ -29,7 +31,8 @@ const routes:Routes = [
   {path:'rutas', component:AdminrutasComponent}, 
   {path:'headerA', component:HeaderAdminComponent},
   {path:'categoria', component:CategoriaComponent},
-  {path:'producto', component:ProductoComponent}
+  {path:'producto', component:ProductoComponent},
+  { path: 'producto/form', component: FormComponentPr },
 
   
   
@@ -58,7 +61,8 @@ const routes:Routes = [
     AdminrutasComponent,
     HeaderAdminComponent, 
     ProductoComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    FormComponentPr
     
   ],
   imports: [

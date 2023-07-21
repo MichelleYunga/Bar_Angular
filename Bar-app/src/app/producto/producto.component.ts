@@ -1,74 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../service/producto.service';  
-import { FormGroup } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from '../modelo/producto';
 import Swal from 'sweetalert2';
-
+import { ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-producto',
   templateUrl: './producto.component.html'
 })
-export class ProductoComponent {
+export class ProductoComponent implements OnInit{
 
-  constructor(private ProductoServi: ProductoService){}
+  
 
-  producto: Producto[] = [];
-  isupdate: boolean = false;
-  selectedItemId: number | undefined;
+  @ViewChild('content', {static: false}) el!: ElementRef;
+  productos: Producto[] = [];
+  producto: Producto;
 
-  formProd: FormGroup = new FormGroup({});
+  constructor(private ProductoServi: ProductoService, private router: Router){}
 
   ngOnInit(): void {
-    this.list();
-    this.formProd = new FormGroup({
-      IdProducto: new FormControl(''),
-      prod_cod: new FormControl(''),
-      prod_catidad: new FormControl(''),
-      prod_descripcion: new FormControl(''),
-      prod_precio: new FormControl(''),
-      prod_img: new FormControl('')
-    });
-}
+    this.obtenerListaProductos();
+ }
+ 
 
-list(){
-  this.ProductoServi.getProducto().subscribe(resp=>{
-       if(resp){
-        this.producto=resp;
-       }
-  });
-}
+ obtenerListaProductos(){
+  this.ProductoServi.getProductos().subscribe(
+    productos => this.productos = productos
+  );
+ }
 
 
-update() {
-  const id = this.selectedItemId;
-  const request = {
-    IdProducto: id,
-    ...this.formProd.value
-  };
-
-  this.ProductoServi.ModificarProducto(request).subscribe(resp => {
-    if (resp) {
-      this.list();
-      this.formProd.reset();
-    }
-  });
-}
-
-
-delete(id: any){
-  this.ProductoServi.EliminarProducto(id).subscribe(resp=>{
-    if(resp){
-      this.list();
-      
-    }
-});
-}
-
-EliminarProducto(id: any) {
+ eliminarProducto(prod_id: number){
   Swal.fire({
-    title: '¿Estas seguro de eliminar el producto?',
+    title: '¿Estas seguro de eliminar este producto?',
     text: "No podras revertirlo!",
     icon: 'warning',
     showCancelButton: true,
@@ -79,54 +44,18 @@ EliminarProducto(id: any) {
     buttonsStyling: true
   }).then((result) => {
     if (result.value) {
-      this.ProductoServi.EliminarProducto(id).subscribe(
-        producto => {
-          this.ProductoServi.getProducto().subscribe(
-            response => this.producto = response
-          )
-          Swal.fire(
-            'Eliminado!',
-            'El producto ha sido eliminado'
-          )
-        })
-    }
-  })
-}
-
-
-save() {
-  if (this.formProd.valid) {
-    const prod = this.formProd.value;
-
-    this.ProductoServi.create(prod).subscribe(
-      (resp) => {
-        this.list();
-        this.formProd.reset();
-        Swal.fire('Producto Registrado', 'Producto registrado con éxito', 'success');
-      },
-      (error) => {
-        console.log(error);
-        Swal.fire('Error', 'Ocurrió un error al registrar el producto', 'error');
-      }
-    );
+      this.ProductoServi.eliminar(prod_id).subscribe(
+        productos => {this.ProductoServi.getProductos().subscribe(
+          response => this.productos = response
+        )
+      Swal.fire(
+        'Eliminado!',
+        'Su producto ha sido eliminado'
+      )
+    })
   }
-}
+  })
+ }
 
-
-newProducto(): void {
-  this.isupdate = false;
-  this.formProd.reset();
-}
-
-selectItem(item: any){
-  this.isupdate = true;
-  this.formProd.controls['IdProducto'].setValue(item.IdProducto);
-  this.formProd.controls['prod_cod'].setValue(item.prod_cod);
-  this.formProd.controls['prod_catidad'].setValue(item.prod_catidad);
-  this.formProd.controls['prod_descripcion'].setValue(item.prod_descripcion);
-  this.formProd.controls['prod_precio'].setValue(item.prod_precio);
-  this.formProd.controls['prod_img'].setValue(item.prod_img);
-
-}
 
 }
