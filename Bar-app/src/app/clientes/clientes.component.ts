@@ -12,7 +12,7 @@ export class ClientesComponent implements OnInit {
 
  // listaPersona:string[] = [];
   personas: Persona []=[];
-  clientes: Persona  listaPersona:string[] = [];
+  clientes: Cliente [] = [];
 
 
   constructor(private clienteService:ClienteService){}
