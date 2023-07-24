@@ -33,7 +33,7 @@ export class FormComponentPr implements OnInit{
 
   public create():void{
     this.productoService.create(this.producto).subscribe(
-      producto => {this.router.navigate(['/productos'])
+      producto => {this.router.navigate(['/producto'])
 
       Swal.fire('Producto Guardado', `Producto ${producto.prod_descripcion} guardado con exito`, 'success')
     }

@@ -14,6 +14,7 @@
         <thead class="table-primary">
           <tr>
             <th>Id Producto</th>
+            <th>Codigo Producto</th>
             <th>Cantidad Producto</th>
             <th>Descripción Producto</th>
             <th>Imagen Producto</th>
@@ -21,8 +22,9 @@
         </thead>
         <tbody>
           <tr *ngFor="let producto of productos">
-            <td>{{producto.id_producto}}</td>                         
-            <td>{{producto.prod_catidad}}</td>
+            <td>{{producto.id_producto}}</td>  
+            <td>{{producto.prod_codigo}}</td>                            
+            <td>{{producto.prod_cantidad}}</td>
             <td>{{producto.prod_descripcion}}</td>                         
             <td ><img [src]="producto.prod_img? 'data:image/jpeg;base64,' + producto.prod_img : '../../../../assets/img/prod.png'"
               alt="" [style.max-height]="'50px'"

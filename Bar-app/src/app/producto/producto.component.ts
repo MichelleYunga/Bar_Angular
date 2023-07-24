@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from '../modelo/producto';
 import Swal from 'sweetalert2';
 import { ElementRef, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-producto',
@@ -16,6 +17,11 @@ export class ProductoComponent implements OnInit{
   @ViewChild('content', {static: false}) el!: ElementRef;
   productos: Producto[] = [];
   producto: Producto;
+  isupdate: boolean = false;
+  selectedItemId: number | undefined;
+
+  formprod: FormGroup = new FormGroup({});
+
 
   constructor(private ProductoServi: ProductoService, private router: Router){}
 
@@ -23,6 +29,34 @@ export class ProductoComponent implements OnInit{
     this.obtenerListaProductos();
  }
  
+
+ ModificarProducto() {
+  const id = this.selectedItemId;
+  const request = {
+    id_producto: id,
+    ...this.formprod.value
+  };
+
+  this.ProductoServi.ModificarProducto(request).subscribe(resp => {
+    if (resp) {
+      this.obtenerListaProductos();
+      this.formprod.reset();
+    }
+  });
+}
+
+selectItem(item: any){
+  this.isupdate = true;
+  this.formprod.controls['id_producto'].setValue(item.id_producto);
+  this.formprod.controls['prod_catidad'].setValue(item.prod_catidad);
+  this.formprod.controls['prod_descripcion'].setValue(item.prod_descripcion);
+  this.formprod.controls['prod_img'].setValue(item.prod_img);
+}
+
+newCategoria(): void {
+  this.isupdate = false;
+  this.formprod.reset();
+}
 
  obtenerListaProductos(){
   this.ProductoServi.getProductos().subscribe(
