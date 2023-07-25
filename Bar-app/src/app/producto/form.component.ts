@@ -12,7 +12,7 @@ import { ProductoService } from '../service/producto.service';
 export class FormComponentPr implements OnInit{
 
   public producto: Producto = new Producto()
-  public titulo:string = "Registro de Producto";
+  public titulo:string = "REGISTRO DE PRODUCTO";
   private imgSeleccionada: File;
 
   constructor(private productoService: ProductoService, private router: Router,

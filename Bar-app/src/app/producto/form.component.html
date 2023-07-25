@@ -10,11 +10,6 @@
             <form ngNativeValidate (ngSubmit)="create()">
 
 
-                <div class="form-group">
-                    <h5><label for="" class="l">Codigo:</label></h5>
-                    <input type="number" id="cantidad" class="form-control" [(ngModel)]="producto.prod_codigo" name="codigo"
-                       placeholder="Cantidad" title="Nombre incorrecto">
-                </div><br>
 
 
                 <div class="form-group">
@@ -39,8 +34,15 @@
 
 
                 <div class="form-group">
+                    <h5><label for="" class="">Precio:</label></h5>
+                    <input type="number" id="cantidad" class="form-control" [(ngModel)]="producto.precio" name="cantidad"
+                       placeholder="Cantidad" title="Nombre incorrecto">
+                </div><br>
+
+
+                <div class="form-group">
                     <button type="submit" class="btn btn-success btn-sm"
-                        role="button">save</button>
+                        role="button">GUARDAR PRODUCTO</button>
                 </div>
 
                 <p class="mb-2 mt-3"><a href="/productos" class="f-w-400"></a>
