@@ -41,8 +41,11 @@ import { catchError, map } from 'rxjs/operators';
       }
     
       
-      eliminar(id: number): Observable<Producto>{
-        return this.httpClient.delete<Producto>(`${this.url}/${id}`);
+      eliminar(id:number):Observable<any>{
+        return this.httpClient.delete<any>(this.url+'/eliminar/'+id).pipe(
+          map(response => response as Producto[])
+        )
+    
       }
 
 
