@@ -17,6 +17,7 @@
             <th>Codigo Producto</th>
             <th>Cantidad Producto</th>
             <th>Descripción Producto</th>
+            <th>Precio Producto</th>
             <th>Imagen Producto</th>
           </tr>
         </thead>
@@ -25,13 +26,14 @@
             <td>{{producto.id_producto}}</td>  
             <td>{{producto.prod_codigo}}</td>                            
             <td>{{producto.prod_cantidad}}</td>
-            <td>{{producto.prod_descripcion}}</td>                         
+            <td>{{producto.prod_descripcion}}</td>   
+            <td>{{producto.precio}}</td>                       
             <td ><img [src]="producto.prod_img? 'data:image/jpeg;base64,' + producto.prod_img : '../../../../assets/img/prod.png'"
               alt="" [style.max-height]="'50px'"
               [style.min-height]="'50px'"></td>
               <td>
                 <a style="color: rgb(38, 167, 38);">
-                    <mat-icon [routerLink]="['/producto/form',producto.id_producto]">edit</mat-icon>
+                    <mat-icon [routerLink]="['/producto/form',producto.id_producto]">EDITAR PRODUCTO</mat-icon>
                 </a>
             </td>
             <td>
