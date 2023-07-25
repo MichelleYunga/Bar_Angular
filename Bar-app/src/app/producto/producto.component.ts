@@ -64,6 +64,14 @@ newCategoria(): void {
   );
  }
 
+ delete(id: any){
+  this.ProductoServi.eliminar(id).subscribe(resp=>{
+    if(resp){
+      this.obtenerListaProductos();
+      
+    }
+});
+}
 
  eliminarProducto(prod_id: number){
   Swal.fire({
