@@ -1,14 +1,19 @@
 <app-header-admin></app-header-admin>
+<div class="container " style="background:rgb(190, 190, 192) ; min-height: 100vh;min-height: 100vh;">
+  <br>
 <div class="card boder-primary mb-3" >
-  <p><h1 style="color: rgb(1, 1, 1); font-family:Georgia; text-align: center;">Categoria</h1>
+  <p><h1 style="color: rgb(1, 1, 1); font-family:Georgia; text-align: center;">ADMINISTRACION DE CATEGORIAS</h1>
 </div>
-    <div class="col-md-12 p-2">
+<div class="card border-primary mb-3">
       <div class="card-body text-primary">
-      <h5 class="card-title">LISTADO DE CATEGORIAS</h5>
+      <h5 class="card-title">Listado de Categorias</h5>
     </div>
+    <div class="my-2 text-left">
       <button type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fa fa-save"></i> Nueva Categoria
       </button>
+    </div>
+
       <table class="table mt-2 table-bordered">
         <thead class="table-primary">
           <tr>
@@ -35,6 +40,7 @@
         </tbody>
       </table>
     </div>
+  </div>
     <div class="modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -58,7 +64,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 *ngIf="!isupdate" class="modal-title fs-5">Crear</h1>
-              <h1 *ngIf="isupdate" class="modal-title fs-5">Crear???</h1>
+              <h1 *ngIf="isupdate" class="modal-title fs-5">Registro Categoria</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="newCategoria()"></button>
             </div>
             <div class="modal-body">

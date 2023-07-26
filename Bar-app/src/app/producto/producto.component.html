@@ -1,16 +1,21 @@
 <app-header-admin></app-header-admin>
-<div class="container">
+<div class="container" style="background:rgb(190, 190, 192) ; min-height: 100vh;min-height: 100vh;">
   <br>
+  <div class="card boder-primary mb-3" >
+    <p><h1 style="color: rgb(1, 1, 1); font-family:Georgia; text-align: center;">ADMINISTRACION PRODUCTOS</h1>
+  </div>
   <div class="card border-primary mb-3">
-      <div class="card-header ">PRODUCTOS</div>
+      
       <div class="card-body text-primary"><br>
-          <h5 class="card-title">Lista de Productos</h5>
+          <h5 class="card-title">Listado de Productos</h5>
 
           <div class="my-2 text-left">
-              <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/producto/form']">Nuevo producto</button>
+              <button class="btn btn-dark" type="button" [routerLink]="['/producto/form']">
+                <i class="fa fa-save"></i> Nuevo Producto
+              </button>
           </div>
 
-      <table class="table mt-2 table-bordered">
+      <table class="table mt-2 table-bordered"> 
         <thead class="table-primary">
           <tr>
             <th>Id Producto</th>

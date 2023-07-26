@@ -27,3 +27,8 @@ text-align: center;
   }
   
 
+.container{
+  background: rgb(190, 190, 192);
+  min-height: 100vh; 
+  min-width: 100vh;
+}
