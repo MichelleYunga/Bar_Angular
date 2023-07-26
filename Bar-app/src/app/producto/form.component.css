@@ -3,6 +3,7 @@
     position: relative;
     width: 70%;
     height: 90%;
+    border: 20mm;
 }
 
 .form{
@@ -15,5 +16,12 @@
     align-items: center;
 }
 
+
+.body{
+    min-height: 100vh;
+    max-width: 400px;
+    background: rgb(175, 126, 52); 
+    margin: 0 auto;
+}
 
 
