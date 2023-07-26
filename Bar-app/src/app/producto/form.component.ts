@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Producto } from '../modelo/producto';
 import { ProductoService } from '../service/producto.service';
+import { Categoria } from '../modelo/categoria';
 
 @Component({
   selector: 'app-form',
@@ -12,6 +13,8 @@ import { ProductoService } from '../service/producto.service';
 export class FormComponentPr implements OnInit{
 
   public producto: Producto = new Producto()
+  categorias: Categoria[] = [];
+  selectedCatId: number=0;
   public titulo:string = "REGISTRO DE PRODUCTO";
   private imgSeleccionada: File;
 
@@ -19,7 +22,8 @@ export class FormComponentPr implements OnInit{
     private activatedRoute: ActivatedRoute){ }
   
   ngOnInit(): void {
-    this.cargarProducto()
+    this.cargarProducto();
+    this.obtenerCat()
   }
 
   cargarProducto(): void{
@@ -30,6 +34,18 @@ export class FormComponentPr implements OnInit{
       }
     })
   }
+
+  
+obtenerCat() {
+  this.productoService.obtenerCat().subscribe(
+    (response: any[]) => {
+      this.categorias = response; // Asigna la lista de roles a la variable roles en el componente
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+}
 
   public create():void{
     this.productoService.create(this.producto).subscribe(

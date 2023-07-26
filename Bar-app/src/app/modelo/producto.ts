@@ -1,3 +1,5 @@
+import { Categoria } from "./categoria";
+
 export class Producto{
     id_producto: number=0;
     prod_codigo: String="";
@@ -5,6 +7,12 @@ export class Producto{
     prod_descripcion: string=""; 
     precio: number=0;
     prod_img: string=""; 
+
+    categoria: Categoria; 
+
+    constructor(){
+        this.categoria=new Categoria(1, "Almuerzos");
+    }
 }
 
 
