@@ -18,7 +18,9 @@
             <th>Cantidad Producto</th>
             <th>Descripción Producto</th>
             <th>Precio Producto</th>
+            <th>Categoria de Producto</th>
             <th>Imagen Producto</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -27,7 +29,8 @@
             <td>{{producto.prod_codigo}}</td>                            
             <td>{{producto.prod_cantidad}}</td>
             <td>{{producto.prod_descripcion}}</td>   
-            <td>{{producto.precio}}</td>                       
+            <td>{{producto.precio}}</td>           
+            
             <td ><img [src]="producto.prod_img? 'data:image/jpeg;base64,' + producto.prod_img : '../../../../assets/img/prod.png'"
               alt="" [style.max-height]="'50px'"
               [style.min-height]="'50px'"></td>

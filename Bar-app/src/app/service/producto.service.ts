@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { Producto } from '../modelo/producto';
 import Swal from 'sweetalert2';
 import { catchError, map } from 'rxjs/operators';
+import { Categoria } from '../modelo/categoria';
 @Injectable({
     providedIn: 'root'
   })
@@ -11,6 +12,8 @@ import { catchError, map } from 'rxjs/operators';
   export class ProductoService {
   
     private url = 'http://localhost:8080/api';
+    private urlcat = 'http://localhost:8080/categorias';
+
     UrlBuscar='';
     constructor(private httpClient:HttpClient) { };
     private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
@@ -54,6 +57,15 @@ import { catchError, map } from 'rxjs/operators';
         return this.httpClient.put<any>(`${this.url}/actualizar/${id}`, request).pipe(
           map(response => response as Producto[])
         );
+      }
+
+
+
+    
+      obtenerCat(): Observable<Categoria[]> {
+        return this.httpClient.get<Categoria[]>(this.urlcat+'/listar').pipe(
+          map(response => response as Categoria[])
+        )
       }
 
     

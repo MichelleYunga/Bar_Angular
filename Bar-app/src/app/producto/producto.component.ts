@@ -19,6 +19,7 @@ export class ProductoComponent implements OnInit{
   producto: Producto;
   isupdate: boolean = false;
   selectedItemId: number | undefined;
+  selectedCatId: number=0;
 
   formprod: FormGroup = new FormGroup({});
 
