@@ -31,7 +31,7 @@ export class ProductoComponent implements OnInit{
  }
  
 
- ModificarProducto() {
+ update() {
   const id = this.selectedItemId;
   const request = {
     id_producto: id,
@@ -45,6 +45,12 @@ export class ProductoComponent implements OnInit{
     }
   });
 }
+
+productoSeleccionado: any = {}; // Variable para almacenar los datos del producto seleccionado en el formulario
+
+  cargarProducto(producto: any) {
+    this.productoSeleccionado = { ...producto }; // Copiar el producto seleccionado a la variable productoSeleccionado
+  }
 
 selectItem(item: any){
   this.isupdate = true;

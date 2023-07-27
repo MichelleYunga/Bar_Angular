@@ -34,23 +34,32 @@
             <td>{{producto.prod_codigo}}</td>                            
             <td>{{producto.prod_cantidad}}</td>
             <td>{{producto.prod_descripcion}}</td>   
-            <td>{{producto.precio}}</td>           
+            <td>{{producto.precio}}</td>   
+            <td>{{producto.categoria.nombre}}</td>        
             
             <td ><img [src]="producto.prod_img? 'data:image/jpeg;base64,' + producto.prod_img : '../../../../assets/img/prod.png'"
               alt="" [style.max-height]="'50px'"
               [style.min-height]="'50px'"></td>
-              <td>
-                <a style="color: rgb(38, 167, 38);">
-                    <mat-icon [routerLink]="['/producto/form',producto.id_producto]">Editar</mat-icon>
-                </a>
-            </td>
+              
             <td>
               <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="eliminarProducto(producto.id_producto)">
                 <i class="fa fa-trash"></i>
               </button>
+             
             </td>
-              
-           
+         
+            <!--  <td>
+                <button type="button" name="button" [routerLink]="['/producto/form', producto.id_producto]" [routerLinkActive]="['active']" (click)="cargarProducto(producto)">Editar</button>
+              </td>
+                <td >
+              <a style="color: rgb(38, 167, 38);">
+                  <mat-icon [routerLink]="['/producto/form',producto.prod_codigo]">edit</mat-icon>
+              </a>
+          </td>
+            -->
+          
+
+          <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
           </tr>
         </tbody>
       </table>

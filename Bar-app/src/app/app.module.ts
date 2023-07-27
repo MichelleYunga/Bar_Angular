@@ -35,6 +35,7 @@ const routes:Routes = [
   {path:'categoria', component:CategoriaComponent},
   {path:'producto', component:ProductoComponent},
   { path: 'producto/form', component: FormComponentPr },
+  { path: 'producto/form/:id', component: FormComponentPr},
   {path:'registro-persona', component:RegistroPersonaComponent},
   {path:'istabar', component:IstaBarComponent}
 
