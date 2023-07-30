@@ -8,8 +8,10 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-categoria',
-  templateUrl: './categoria.component.html'
+  templateUrl: './categoria.component.html',
+  styleUrls: ['./categoria.component.css']
 })
+
 export class CategoriaComponent {
 
   constructor(private categoriaServ: CategoriaService){}

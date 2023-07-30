@@ -66,12 +66,13 @@ export class LoginRegisComponent implements OnInit {
   registrar(mdpers:persona,mdadm:administrador) {
     if (mdpers.cedula != "" && mdadm.usuario !="" && mdadm.contrase != "") {
 
-      alert('entra en el bucle');
+      
 
       this.service.getPersonaCedula(this.modeloper).subscribe(data => {
 
         if (data) {
 
+          Swal.fire('Registro', 'CEDULA EXISTENTE', 'warning');
           console.log("CEDULA EXISTENTE");
 
 

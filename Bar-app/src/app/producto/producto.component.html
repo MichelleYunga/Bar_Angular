@@ -1,66 +1,61 @@
-<app-header-admin></app-header-admin>
-<div class="container" style="background:rgb(190, 190, 192) ; min-height: 100vh;min-height: 100vh;">
-  <br>
-  <div class="card boder-primary mb-3" >
-    <p><h1 style="color: rgb(1, 1, 1); font-family:Georgia; text-align: center;">ADMINISTRACION PRODUCTOS</h1>
-  </div>
-  <div class="card border-primary mb-3">
-      
-      <div class="card-body text-primary"><br>
-          <h5 class="card-title">Listado de Productos</h5>
+<app-header-admin></app-header-admin> 
+<div class="container">
+  <div class="card1">
 
-          <div class="my-2 text-left">
-              <button class="btn btn-dark" type="button" [routerLink]="['/producto/form']">
-                <i class="fa fa-save"></i> Nuevo Producto
-              </button>
-          </div>
+    <div class="card">
+      <div class="card-header">
+        <img src="/assets/img/product.png" >
+        ADMINISTRACION PRODUCTOS
 
-      <table class="table mt-2 table-bordered"> 
-        <thead class="table-primary">
-          <tr>
-            <th>Id Producto</th>
-            <th>Codigo Producto</th>
-            <th>Cantidad Producto</th>
-            <th>Descripción Producto</th>
-            <th>Precio Producto</th>
-            <th>Categoria de Producto</th>
-            <th>Imagen Producto</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let producto of productos">
-            <td>{{producto.id_producto}}</td>  
-            <td>{{producto.prod_codigo}}</td>                            
-            <td>{{producto.prod_cantidad}}</td>
-            <td>{{producto.prod_descripcion}}</td>   
-            <td>{{producto.precio}}</td>   
-            <td>{{producto.categoria.nombre}}</td>        
-            
-            <td ><img [src]="producto.prod_img? 'data:image/jpeg;base64,' + producto.prod_img : '../../../../assets/img/prod.png'"
-              alt="" [style.max-height]="'50px'"
-              [style.min-height]="'50px'"></td>
-              
-            <td>
-              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="eliminarProducto(producto.id_producto)">
-                <i class="fa fa-trash"></i>
-              </button>
-             
-            </td>
-         
-            <!--  <td>
-                <button type="button" name="button" [routerLink]="['/producto/form', producto.id_producto]" [routerLinkActive]="['active']" (click)="cargarProducto(producto)">Editar</button>
+      </div>
+
+      <div class="my-2 text-left">
+        <button class="btn btn-dark" type="button" [routerLink]="['/producto/form']">
+          <i class="fa fa-save"></i> Nuevo Producto
+        </button>
+      </div>
+
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>CODIGO</th>
+              <th>CANTIDAD</th>
+              <th>DESCRIPCION</th>
+              <th>PRECIO</th>
+              <th>CATEGORIA</th>
+              <th>IMAGEN</th>
+              <th>OPCIONES</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let producto of productos">
+              <td>{{producto.id_producto}}</td>
+              <td>{{producto.prod_codigo}}</td>
+              <td>{{producto.prod_cantidad}}</td>
+              <td>{{producto.prod_descripcion}}</td>
+              <td>{{producto.precio}}</td>
+              <td>{{producto.categoria.nombre}}</td>
+
+              <td><img
+                  [src]="producto.prod_img? 'data:image/jpeg;base64,' + producto.prod_img : '../../../../assets/img/prod.png'"
+                  alt="" [style.max-height]="'50px'" [style.min-height]="'50px'"></td>
+
+              <td>
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal" (click)="eliminarProducto(producto.id_producto)">
+                  <i class="fa fa-trash"></i>
+                </button>
+                <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()"></button>
+
               </td>
-                <td >
-              <a style="color: rgb(38, 167, 38);">
-                  <mat-icon [routerLink]="['/producto/form',producto.prod_codigo]">edit</mat-icon>
-              </a>
-          </td>
-            -->
-          
+              
+            </tr>
 
-          <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
-          </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>

@@ -8,15 +8,15 @@ import Swal from 'sweetalert2';
   styleUrls: ['./header-admin.component.css']
 })
 export class HeaderAdminComponent {
-  title:string="ISTA BAR";
+  title: string = "ISTA BAR";
 
 
-constructor(private router:Router){
+  constructor(private router: Router) {
 
-}
-cerrarSesion() {
-  
-  this.router.navigate(["login"]);
-  Swal.fire('SESION FINALIZADA','Saliendo del sistema','success');
-}
+  }
+  cerrarSesion() {
+
+    this.router.navigate(["login"]);
+    Swal.fire('SESION FINALIZADA', 'Saliendo del sistema', 'success');
+  }
 }
