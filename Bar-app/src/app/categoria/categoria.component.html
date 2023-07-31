@@ -1,94 +1,88 @@
 <app-header-admin></app-header-admin>
-<div class="container " style="background:rgb(190, 190, 192) ; min-height: 100vh;min-height: 100vh;">
-  <br>
-<div class="card boder-primary mb-3" >
-  <p><h1 style="color: rgb(1, 1, 1); font-family:Georgia; text-align: center;">ADMINISTRACION DE CATEGORIAS</h1>
-</div>
-<div class="card border-primary mb-3">
-      <div class="card-body text-primary">
-      <h5 class="card-title">Listado de Categorias</h5>
-    </div>
-    <div class="my-2 text-left">
-      <button type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <i class="fa fa-save"></i> Nueva Categoria
-      </button>
-    </div>
+<!-- TODO: Modals -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 *ngIf="!isupdate" class="modal-title fs-5">Crear</h1>
+        <h1 *ngIf="isupdate" class="modal-title fs-5">Registro Categoria</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="newCategoria()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formCat">
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="nombre">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">Tipo</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="tipo">
+            </div>
+          </div>
 
-      <table class="table mt-2 table-bordered">
-        <thead class="table-primary">
-          <tr>
-            <th>Id Categoria</th>
-            <th>Nombre Categoria</th>
-            <th>Tipo Categoria</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of categoria">
-            <td>{{item.id_categoria}}</td>                         
-            <td>{{item.nombre}}</td>
-            <td>{{item.tipo}}</td>
-            <td>   
-              <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectItem(item)">
-                <i class="fa fa-pencil"></i>
-              </button>
-              &nbsp;
-              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="EliminarCategoria(item.id_categoria)">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-    <div class="modal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm" (click)="save()">Save</button>
+        <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
       </div>
     </div>
   </div>
-        <!-- TODO: Modals -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 *ngIf="!isupdate" class="modal-title fs-5">Crear</h1>
-              <h1 *ngIf="isupdate" class="modal-title fs-5">Registro Categoria</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="newCategoria()"></button>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="formCat">
-                <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">Nombre</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="nombre">
-                  </div>
-              </div>
-              <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">Tipo</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="tipo">
-                  </div>
-              </div>
-  
-                  </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-              <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="save()">Save</button>
-              <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
-            </div>
-          </div>
-        </div>
+</div>
+
+
+<div class="container">
+  <div class="card1">
+
+    <div class="card">
+      <div class="card-header">
+        <img src="/assets/img/catg.png">
+        ADMINISTRACION CATEGORIAS
+
       </div>
+
+      <div class="my-2 text-left">
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fa fa-save"></i> Nueva Categoria
+        </button>
+      </div>
+      
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NOMBRE</th>
+              <th>TIPO CATEGORIA</th>
+              <th>OPCIONES</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let item of categoria">
+              <td>{{item.id_categoria}}</td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.tipo}}</td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  (click)="selectItem(item)">
+                  <i class="fa fa-pencil"></i>
+                </button>
+                &nbsp;
+                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  (click)="EliminarCategoria(item.id_categoria)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

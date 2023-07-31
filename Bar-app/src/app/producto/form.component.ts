@@ -12,9 +12,11 @@ import { Categoria } from '../modelo/categoria';
 })
 export class FormComponentPr implements OnInit{
 
-  public producto: Producto = new Producto()
+  producto: Producto = new Producto();
   categorias: Categoria[] = [];
+  CategoriaV: Categoria = new Categoria();
   selectedCatId: number=0;
+
   public titulo:string = "REGISTRO DE PRODUCTO";
   private imgSeleccionada: File;
 
