@@ -1,83 +1,81 @@
 <app-header-admin></app-header-admin>
+<body>
+
 <div class="container">
-    <div class="card1">
+    <br><br>
+    <div class="row">
 
-        <div class="card">
-            <div class="card-header">
-                <img src="/assets/img/product.png">
-                REGISTRAR PRODUCTOS
+        <h4 class="card-title">{{titulo}}</h4><br>
 
-            </div>
-            <div class="card-body">
+        <div class="col-sm">
 
-                <div class="col-md-6 offset-md-3">
-                    
+            <form ngNativeValidate (ngSubmit)="create()">
 
-                    <form ngNativeValidate (ngSubmit)="create()">
+                <div class="form-group">
+                    <h5><label for="" class="l">Codigo:</label></h5>
+                    <input type="number" id="cantidad" class="form-control" [(ngModel)]="producto.prod_codigo" name="codigo"
+                       placeholder="Cantidad" title="Codigo incorrecto">
+                </div><br>
 
-                        <div class="form-group">
-                            <label>CODIGO: </label>
-                            <input type="text" class="form-control" [(ngModel)]="producto.prod_codigo" name="codigo"
-                                required>
-                        </div>
+                
+                <div class="form-group">
+                    <h5><label for="" class="">Cantidad:</label></h5>
+                    <input type="number" id="cantidad" class="form-control" [(ngModel)]="producto.prod_cantidad" name="cantidad"
+                       placeholder="Cantidad" title="Nombre incorrecto">
+                </div><br>
 
-                        <div class="form-group">
-                            <label>CANTIDAD: </label>
-                            <input type="number" class="form-control" [(ngModel)]="producto.prod_cantidad"
-                                name="cantidad" required>
-                        </div>
+                <div class="form-group">
+                    <h5><label for="" class="">Descripción:</label></h5>
+                    <input type="text" id="descripcion" class="form-control" [(ngModel)]="producto.prod_descripcion"
+                        name="descripcion" required pattern="[ A-Za-z0-9]+" placeholder="Descripcion"
+                        title="Descripción incorrecto">
+                </div><br>
 
-                        <div class="form-group">
-                            <label>DESCRIPCION: </label>
-                            <input type="text" class="form-control" [(ngModel)]="producto.prod_descripcion"
-                                name="descripcion" required>
-                        </div>
+                <div class="form-group">
+                    <h5><label for="" class="">Precio:</label></h5>
+                    <input type="number" id="cantidad" class="form-control" [(ngModel)]="producto.precio" name="cantidad"
+                       placeholder="Precio" title="Precio incorrecto">
+                </div><br>
+                
+                <div class="form-group">
+                    <label class="col-sm-2 col-form-label">Categoria</label>
+                    <div class="col-sm-10">
+                        <select   class="form-control" formControlName="id_categoria">
+                            <option value="" selected disabled>Seleccione una categoria</option>
+                            <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombre }}</option>
+                          </select>
+                      </div>
+                   
+                  </div>
 
-                        <div class="form-group">
-                            <label>PRECIO: </label>
-                            <input type="number" class="form-control" [(ngModel)]="producto.precio" name="precio"
-                                required>
-                        </div>
 
-                        <div class="form-group">
-                            <label>CATEGORIA: </label>
 
-                            <select name="miselect" [(ngModel)]="CategoriaV">
-
-                                <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">
-                                    {{categoria.nombre}}
-                                </option>
-                            </select>
-
-                        </div>
-
-                        <div class="col-sm">
-                            <label>SELECCIONE UNA IMAGEN </label>
-                            <div class="row mt-2">
-                                <div class="col-md-12 d-flex justify-content-center align-items-center">
-                                    <div class="text-center" style="border: 3px solid rgb(6, 16, 102);"
-                                        class="row rounded" style="box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);">
-
-                                        <img [src]="producto.prod_img? 'data:image/jpeg;base64,' + producto.prod_img : '../../../../assets/img/prod.png'"
-                                            alt="" (click)="fileInput.click()" [style.max-height]="'400px'"
-                                            [style.min-height]="'350px'">
-                                        <input type="file" #fileInput style="display: none;"
-                                            accept="image/jpeg, image/jpg, image/png"
-                                            (change)="loadProductoImg($event)">
-                                    </div>
-                                </div>
-                            </div><br>
-                        </div>
-
-                        <button class="btn btn-success">Guardar</button>
-
-                    </form>
-
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-sm"
+                        role="button">GUARDAR PRODUCTO</button>
                 </div>
 
-            </div>
+                <p class="mb-2 mt-3"><a href="/productos" class="f-w-400"></a>
+                    <br><br><br><br>
+            </form>
         </div>
 
+        <div class="col-sm">
+            <h5><label for="" class="custom-file-label">Seleccione una imagen:</label></h5><br><br>
+            <div class="row mt-2">
+                <div class="col-md-12 d-flex justify-content-center align-items-center">
+                    <div class="text-center" style="border: 3px solid rgb(6, 16, 102);" class="row rounded"
+                        style="box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);">
 
-
+                        <img [src]="producto.prod_img? 'data:image/jpeg;base64,' + producto.prod_img : '../../../../assets/img/prod.png'"
+                            alt="" (click)="fileInput.click()" [style.max-height]="'400px'"
+                            [style.min-height]="'350px'">
+                        <input type="file" #fileInput style="display: none;" accept="image/jpeg, image/jpg, image/png"
+                            (change)="loadProductoImg($event)">
+                    </div>
+                </div>
+            </div><br>
+        </div>
     </div>
+</div>
+</body>

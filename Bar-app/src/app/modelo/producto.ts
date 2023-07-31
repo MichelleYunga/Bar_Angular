@@ -9,6 +9,10 @@ export class Producto{
     prod_img: string=""; 
 
     categoria: Categoria; 
+
+    constructor(){
+        this.categoria=new Categoria(1, "Almuerzos");
+    }
 }
 
 

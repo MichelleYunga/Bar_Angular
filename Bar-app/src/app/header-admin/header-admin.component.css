@@ -1,15 +1,5 @@
 .navbar{
-    background: linear-gradient(135deg,#ffee00 , #001aff );
+    background: linear-gradient(135deg, #001aff, #ffee00);
     color: rgb(232, 112, 112);
-}
-
-.logo{
-    width: 70px;
-    height: 70px;
-  
-}
-
-.nav-link{
-    color: aliceblue;
 }
 

@@ -8,8 +8,7 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-producto',
-  templateUrl: './producto.component.html',
-  styleUrls: ['./producto.component.css']
+  templateUrl: './producto.component.html'
 })
 export class ProductoComponent implements OnInit{
 

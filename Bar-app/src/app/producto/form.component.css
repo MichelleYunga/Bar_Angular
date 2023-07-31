@@ -1,4 +1,10 @@
-
+.container{
+    background: rgb(183, 203, 252);
+    position: relative;
+    width: 70%;
+    height: 90%;
+    border: 20mm;
+}
 
 .form{
     width: 100%;
@@ -17,10 +23,5 @@
     background: rgb(175, 126, 52); 
     margin: 0 auto;
 }
-
-.card1{
-    padding-top: 1cm;
-  }
-  
 
 

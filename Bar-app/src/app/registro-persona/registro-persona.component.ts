@@ -73,7 +73,6 @@ export class RegistroPersonaComponent implements OnInit  {
     }
 
     if(this.bandera==0){
-
       console.log(this.pers);
 
       this.service.createPersona(this.pers).subscribe(data =>{
